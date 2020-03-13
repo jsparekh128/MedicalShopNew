@@ -10,6 +10,15 @@
     android:padding="20dp"
     >
 
+    <ImageView
+        android:id="@+id/avatarimg"
+        android:layout_width="140dp"
+        android:layout_height="144dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="70dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/avatar" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,10 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/nametxt"
             android:inputType="text"
             android:textSize="20sp"
-            />
+            android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -42,10 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Email:"
-            android:inputType="text"
+            android:hint="@string/emailtxt"
+            android:inputType="textEmailAddress"
             android:textSize="20sp"
-            />
+            android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,16 +64,17 @@
         android:focusableInTouchMode="true"
         android:textColorHint="@color/text_color"
         >
+
         <EditText
             android:id="@+id/editTextMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Mobile No"
-            android:inputType="text"
-            android:textSize="20sp"
-            />
+            android:hint="@string/mobtxt"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -80,10 +90,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="text"
+            android:hint="@string/passtxt"
+            android:inputType="textPassword"
             android:textSize="20sp"
-            />
+            android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/btnRegister"
@@ -91,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_rounded"
-        android:text="Register"
+        android:text="@string/registbtn"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         />
@@ -99,8 +109,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Have an account?"
-        android:textSize="20dp"
+        android:text="@string/accque"
+        android:textSize="20sp"
         android:textColor="@color/text_color"
         />
 
@@ -110,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_rounded"
-        android:text="Login"
+        android:text="@string/loginbtn"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 </LinearLayout>

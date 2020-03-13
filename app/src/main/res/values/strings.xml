@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Medical Shop</string>
+    <string name="todo">todo</string>
+    <string name="nametxt">Name</string>
+    <string name="emailtxt">E-mail</string>
+    <string name="mobtxt">Mobile No</string>
+    <string name="passtxt">Password</string>
+    <string name="registbtn">Register</string>
+    <string name="accque">Have an account?</string>
+    <string name="loginbtn">Login</string>
+    <string name="noaccque">Dont have an account?</string>
+    <string name="signupbtn">Sign Up</string>
 </resources>
