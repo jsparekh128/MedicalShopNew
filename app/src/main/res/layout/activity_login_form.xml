@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context=".Login">
 
     <Button
         android:id="@+id/signupbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="53dp"
         android:background="@drawable/button_rounded"
         android:text="@string/signupbtn"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loginbtn"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/loginbtn"
         app:layout_constraintTop_toBottomOf="@+id/quetext"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -36,8 +36,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mobedittxt"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="321dp"
+        android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/avatarimg"
         app:layout_constraintHorizontal_bias="0.408"
@@ -46,8 +46,8 @@
         app:layout_constraintVertical_bias="0.068">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="380dp"
-            android:layout_height="47dp"
+            android:layout_width="321dp"
+            android:layout_height="42dp"
             android:hint="@string/mobtxt"
             android:inputType="phone"
             android:textSize="20sp" />
@@ -55,8 +55,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pwdedittxt"
-        android:layout_width="386dp"
-        android:layout_height="73dp"
+        android:layout_width="319dp"
+        android:layout_height="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,8 +74,8 @@
 
     <TextView
         android:id="@+id/quetext"
-        android:layout_width="387dp"
-        android:layout_height="34dp"
+        android:layout_width="292dp"
+        android:layout_height="41dp"
         android:text="@string/noaccque"
         android:textColor="@color/text_color"
         android:textSize="20sp"
@@ -84,22 +84,22 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/loginbtn"
         app:layout_constraintTop_toBottomOf="@+id/loginbtn"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.202" />
 
     <Button
         android:id="@+id/loginbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="309dp"
+        android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_rounded"
         android:text="@string/loginbtn"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/pwdedittxt"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/pwdedittxt"
         app:layout_constraintTop_toBottomOf="@+id/pwdedittxt"
-        app:layout_constraintVertical_bias="0.0" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintVertical_bias="0.049" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>

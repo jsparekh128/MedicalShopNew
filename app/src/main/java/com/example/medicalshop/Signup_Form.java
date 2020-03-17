@@ -26,17 +26,26 @@ public class Signup_Form extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mDatabaseReference;
     FirebaseAuth mFirebaseAuth;
+    private Button btnlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__form);
         getSupportActionBar().setTitle("Sign up");
-        edName=(EditText)findViewById(R.id.editTextName);
-        edEmail=(EditText)findViewById(R.id.editTextEmail);
-        edMobile=(EditText)findViewById(R.id.editTextMobile);
-        edPassword=(EditText)findViewById(R.id.editTextPassword);
-        btnReg=(Button)findViewById(R.id.btnRegister);
+        edName = (EditText) findViewById(R.id.editTextName);
+        edEmail = (EditText) findViewById(R.id.editTextEmail);
+        edMobile = (EditText) findViewById(R.id.editTextMobile);
+        edPassword = (EditText) findViewById(R.id.editTextPassword);
+        btnReg = (Button) findViewById(R.id.btnRegister);
+        btnlogin = (Button) findViewById(R.id.btnLogin);
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLogin();
+            }
+        });
 
         database=FirebaseDatabase.getInstance();
         mFirebaseAuth=FirebaseAuth.getInstance();
@@ -96,5 +105,9 @@ public class Signup_Form extends AppCompatActivity {
         });
 
 
+    }
+    public void openLogin(){
+        Intent i=new Intent(this,Login.class);
+        startActivity(i);
     }
 }

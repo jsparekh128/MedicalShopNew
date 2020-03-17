@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Medical Shop</string>
+    <string name="app_name">MedicalShop</string>
     <string name="todo">todo</string>
     <string name="nametxt">Name</string>
     <string name="emailtxt">E-mail</string>

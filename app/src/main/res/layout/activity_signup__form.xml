@@ -17,6 +17,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="70dp"
         android:contentDescription="@string/todo"
+        android:background="@color/background"
         app:srcCompat="@drawable/avatar" />
 
     <com.google.android.material.textfield.TextInputLayout
