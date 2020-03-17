@@ -3,7 +3,9 @@ package com.example.medicalshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -26,6 +28,8 @@ public class Signup_Form extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mDatabaseReference;
     FirebaseAuth mFirebaseAuth;
+    SQLiteDatabase db;
+    boolean flag=true;
     private Button btnlogin;
 
     @Override
@@ -50,6 +54,7 @@ public class Signup_Form extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         mFirebaseAuth=FirebaseAuth.getInstance();
 
+
         mDatabaseReference=database.getReference("PersonDetails");
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,47 +65,64 @@ public class Signup_Form extends AppCompatActivity {
                 final String ppassword=edPassword.getText().toString();
                 if(TextUtils.isEmpty(pname))
                 {
-                    Toast.makeText(Signup_Form.this,"Please Enter Name!",Toast.LENGTH_LONG).show();
+                    edName.setError("Please enter Name");
+                    flag=false;
                 }
                 if(TextUtils.isEmpty(pemail))
                 {
-                    Toast.makeText(Signup_Form.this,"Please Enter Email!",Toast.LENGTH_LONG).show();
+                    edEmail.setError("Please enter Email");
+                    flag=false;
                 }
                 if(TextUtils.isEmpty(pmobile))
                 {
-                    Toast.makeText(Signup_Form.this,"Please Enter Mobile No!",Toast.LENGTH_LONG).show();
+                    edMobile.setError("Please enter Mobile");
+                    flag=false;
                 }
                 if(TextUtils.isEmpty(ppassword))
                 {
-                    Toast.makeText(Signup_Form.this,"Please Enter Password!",Toast.LENGTH_LONG).show();
+                    edPassword.setError("Please enter Password");
+                    flag=false;
                 }
 
 
-
+                if(flag)
+                {
                 mFirebaseAuth.signInWithEmailAndPassword(pemail, ppassword)
                         .addOnCompleteListener(Signup_Form.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Person perDetail=new Person(pname,pemail,pmobile,ppassword);
+                                    Person perDetail = new Person(pname, pemail, pmobile, ppassword);
                                     database.getReference("PersonDetails").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(perDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(Signup_Form.this,"Registration Complete",Toast.LENGTH_LONG).show();
-                                            //startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                            db=openOrCreateDatabase("PersonDetails", Context.MODE_PRIVATE, null);
+                                            db.execSQL("CREATE TABLE IF NOT EXISTS person(userid VARCHAR,email VARCHAR,password VARCHAR);");
+                                            db.execSQL("INSERT INTO person VALUES('"+mFirebaseAuth.getCurrentUser().getUid()+"','"+edEmail.getText()+"','"+edPassword.getText()+"');");
+
+
+                                            Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_LONG).show();
+                                            startActivity(new Intent(getApplicationContext(),Login.class));
 
                                         }
                                     });
 
                                 } else {
+                                    Toast.makeText(Signup_Form.this, "Registration Failed", Toast.LENGTH_LONG).show();
+
 
                                 }
+                            }
 
                                 // ...
-                            }
+
                         });
 
-
+                }
+                else
+                {
+                    Toast.makeText(Signup_Form.this,"Please Enter Valid Data",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
