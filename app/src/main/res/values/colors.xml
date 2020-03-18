@@ -6,4 +6,5 @@
     <color name="background">#EEEDEF</color>
     <color name="text_color">#5A5656</color>
     <color name="backcolor">#FFFFFF</color>
+    <color name="splashcolor">#40D646</color>
 </resources>

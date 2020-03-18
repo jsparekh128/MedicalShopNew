@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"
+    tools:context=".Admin_Home"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg2">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,14 +17,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtId"
-            android:text="@string/logintxt"
-            android:textSize="30sp"
-            android:textColor="@color/colorAccent"
+            android:text="@string/textadmin"
+            android:textSize="40sp"
+            android:textColor="@color/backcolor"
             android:textStyle="bold"
             android:layout_centerInParent="true"
             android:textColorHighlight="@color/colorPrimary"
             >
-
         </TextView>
     </RelativeLayout>
     <GridLayout
@@ -40,6 +39,7 @@
         <!-- Row 1 -->
         <!-- Column 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdorder"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -55,13 +55,16 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/orderimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/order"
                     android:contentDescription="@string/order"/>
 
                 <TextView
+                    android:id="@+id/ordertxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/order"
@@ -69,16 +72,16 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <!-- Column 2-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdaboutus"
             android:layout_width="0dp"
-           android:layout_height="0dp"
+            android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_marginLeft="16dp"
@@ -95,13 +98,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/aboutusimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/aboutus"
                     android:contentDescription="@string/aboutus"/>
 
                 <TextView
+                    android:id="@+id/aboutustxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -111,7 +115,6 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -119,6 +122,7 @@
         <!-- Row 2 -->
         <!-- Column 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdprofile"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -135,8 +139,9 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/profileimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/profile"
                     android:contentDescription="@string/profiletxt"/>
 
@@ -148,17 +153,14 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-
-
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <!-- Column 2-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdstore"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -177,9 +179,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/storeimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/store"
                     android:contentDescription="@string/store"/>
 
@@ -192,12 +194,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-
     </GridLayout>
-
 </LinearLayout>
