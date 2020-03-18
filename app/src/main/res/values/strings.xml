@@ -10,4 +10,10 @@
     <string name="loginbtn">Login</string>
     <string name="noaccque">Dont have an account?</string>
     <string name="signupbtn">Sign Up</string>
+    <string name="logintxt">"Welcome User!!"</string>
+    <string name="order">Order</string>
+    <string name="profiletxt">Profile</string>
+    <string name="aboutustxt">About Us</string>
+    <string name="storetxt">Store</string>
+
 </resources>
