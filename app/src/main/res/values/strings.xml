@@ -10,7 +10,7 @@
     <string name="loginbtn">Login</string>
     <string name="noaccque">Dont have an account?</string>
     <string name="signupbtn">Sign Up</string>
-    <string name="text">ADMIN DASHBOARD</string>
+    <string name="textadmin">"WELCOME ADMIN !!"</string>
     <string name="myprofile">PROFILE</string>
     <string name="store">STORE</string>
     <string name="aboutus">ABOUT US</string>
