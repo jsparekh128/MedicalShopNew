@@ -7,7 +7,7 @@
     tools:context=".Admin_Home"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@drawable/bg2">
+    android:background="@drawable/bg4">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -27,6 +27,7 @@
         </TextView>
     </RelativeLayout>
     <GridLayout
+        android:id="@+id/gridid"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
@@ -48,7 +49,8 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +90,8 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -123,6 +126,7 @@
         <!-- Column 1-->
         <androidx.cardview.widget.CardView
             android:id="@+id/crdprofile"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -146,6 +150,7 @@
                     android:contentDescription="@string/profiletxt"/>
 
                 <TextView
+                    android:id="@+id/proftxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/profiletxt"
@@ -161,6 +166,7 @@
         <!-- Column 2-->
         <androidx.cardview.widget.CardView
             android:id="@+id/crdstore"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -186,6 +192,7 @@
                     android:contentDescription="@string/store"/>
 
                 <TextView
+                    android:id="@+id/storetxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
