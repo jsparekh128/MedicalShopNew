@@ -1,17 +1,14 @@
 package com.example.medicalshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class HomePage extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Admin_store extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-
-
+        setContentView(R.layout.activity_admin_store);
     }
-
 }
