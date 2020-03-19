@@ -32,18 +32,22 @@ public class Admin_Home extends AppCompatActivity {
         switch(v.getId()){
             case R.id.crdaboutus :
                 i=new Intent(this,Admin_aboutus.class);
+                startActivity(i);
                 break;
 
             case R.id.crdorder :
                 i=new Intent(this,Admin_order.class);
+                startActivity(i);
                 break;
 
             case R.id.crdstore :
                 i=new Intent(this,Admin_store.class);
+                startActivity(i);
                 break;
 
             case R.id.crdprofile :
                 i=new Intent(this,Admin_profile.class);
+                startActivity(i);
                 break;
         }
     }
