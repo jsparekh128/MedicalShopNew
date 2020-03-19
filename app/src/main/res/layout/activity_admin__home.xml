@@ -150,6 +150,7 @@
                     android:contentDescription="@string/profiletxt"/>
 
                 <TextView
+                    android:id="@+id/proftxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/profiletxt"
@@ -191,6 +192,7 @@
                     android:contentDescription="@string/store"/>
 
                 <TextView
+                    android:id="@+id/storetxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

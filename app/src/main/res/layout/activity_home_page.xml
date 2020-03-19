@@ -7,7 +7,7 @@
     tools:context=".HomePage"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg4">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtId"
             android:text="@string/logintxt"
-            android:textSize="30sp"
-            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:textColor="@color/backcolor"
             android:textStyle="bold"
             android:layout_centerInParent="true"
             android:textColorHighlight="@color/colorPrimary"
@@ -40,6 +40,7 @@
         <!-- Row 1 -->
         <!-- Column 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdorder"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -48,7 +49,8 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,12 +58,14 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/orderimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/order"
                     android:contentDescription="@string/order"/>
 
                 <TextView
+                    android:id="@+id/ordertxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/order"
@@ -77,15 +81,17 @@
 
         <!-- Column 2-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdaboutus"
             android:layout_width="0dp"
-           android:layout_height="0dp"
+            android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -95,13 +101,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/aboutusimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/aboutus"
                     android:contentDescription="@string/aboutus"/>
 
                 <TextView
+                    android:id="@+id/aboutustxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -119,6 +126,8 @@
         <!-- Row 2 -->
         <!-- Column 1-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdprofile"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -135,12 +144,13 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/profileimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/profile"
                     android:contentDescription="@string/profiletxt"/>
-
                 <TextView
+                    android:id="@+id/proftxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/profiletxt"
@@ -159,6 +169,8 @@
 
         <!-- Column 2-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdstore"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -177,13 +189,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/storeimg"
+                    android:layout_width="102dp"
+                    android:layout_height="147dp"
                     android:src="@drawable/store"
                     android:contentDescription="@string/store"/>
 
                 <TextView
+                    android:id="@+id/storetxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
