@@ -22,10 +22,8 @@
             android:textColor="@color/backcolor"
             android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:textColorHighlight="@color/colorPrimary"
-            >
-        </TextView>
-    </RelativeLayout>
+            android:textColorHighlight="@color/colorPrimary" />
+            </RelativeLayout>
     <GridLayout
         android:id="@+id/gridid"
         android:layout_width="match_parent"
