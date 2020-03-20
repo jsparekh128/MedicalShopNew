@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT=4000;
-    SQLiteDatabase db;
+   Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,24 +20,22 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                db=openOrCreateDatabase("PersonDetails", Context.MODE_PRIVATE, null);
-                Cursor c=db.rawQuery("SELECT * FROM person",null);
-                if(c.getCount()==0)
-                {
-                    Intent logini=new Intent(MainActivity.this,Signup_Form.class);
-                    startActivity(logini);
-                    finish();
+                SharedPreferences sharedPreferences = context.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+                String email = sharedPreferences.getString("email", null);
+                String password = sharedPreferences.getString("password", null);
+                if (email != null && password != null ) {
+                    startActivity(new Intent(getApplicationContext(),HomePage.class));
+
                 }
                 else
                 {
-                    Intent logini=new Intent(MainActivity.this,HomePage.class);
-                    startActivity(logini);
-                    finish();
+                    startActivity(new Intent(getApplicationContext(),Signup_Form.class));
                 }
-                c.close();
+
 
             }
         },SPLASH_TIME_OUT);
         }
+
     }
 

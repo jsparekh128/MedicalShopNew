@@ -28,7 +28,6 @@ public class Signup_Form extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mDatabaseReference;
     FirebaseAuth mFirebaseAuth;
-    SQLiteDatabase db;
     boolean flag=true;
     private Button btnlogin;
 
@@ -92,33 +91,16 @@ public class Signup_Form extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Person perDetail = new Person(pname, pemail, pmobile, ppassword);
-                                    database.getReference("PersonDetails").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(perDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            db=openOrCreateDatabase("PersonDetails", Context.MODE_PRIVATE, null);
-                                            db.execSQL("CREATE TABLE IF NOT EXISTS person(userid VARCHAR,email VARCHAR,password VARCHAR);");
-                                            db.execSQL("INSERT INTO person VALUES('"+mFirebaseAuth.getCurrentUser().getUid()+"','"+edEmail.getText()+"','"+edPassword.getText()+"');");
-
-
                                             Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(getApplicationContext(),Login.class));
 
                                         }
-                                    });
-
-                                } else {
-                                    Toast.makeText(Signup_Form.this, "Registration Failed", Toast.LENGTH_LONG).show();
-
-
-                                }
-                            }
-
-                                // ...
+                                    };
 
                         });
 
                 }
+
                 else
                 {
                     Toast.makeText(Signup_Form.this,"Please Enter Valid Data",Toast.LENGTH_LONG).show();

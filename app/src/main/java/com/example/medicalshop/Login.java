@@ -3,7 +3,9 @@ package com.example.medicalshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,8 +39,8 @@ class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            String email=edEmail.getText().toString();
-            String password=edPassword.getText().toString();
+            final String email=edEmail.getText().toString();
+            final String password=edPassword.getText().toString();
             if(TextUtils.isEmpty(email))
             {
                 edEmail.setError("Please enter Email");
@@ -62,7 +64,14 @@ class Login extends AppCompatActivity {
                         }
                         else
                         {
-                         startActivity(new Intent(getApplicationContext(),HomePage.class));
+                            SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("email", email);
+                            // this should be salted
+                            editor.putString("password", password);
+                            editor.commit();
+                            startActivity(new Intent(getApplicationContext(),HomePage.class));
+
                         }
                     }
                 });
