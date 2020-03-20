@@ -15,12 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
-class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     Button btnsignup,btnLogin;
     EditText edEmail,edPassword;
     FirebaseAuth mFirebaseAuth;
@@ -30,11 +32,11 @@ class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_form);
-        btnsignup=(Button)findViewById(R.id.signupbtn);
+        btnsignup=(Button)findViewById(R.id.btnRegister);
         mFirebaseAuth=FirebaseAuth.getInstance();
-        btnLogin=(Button) findViewById(R.id.loginbtn);
-        edEmail=(EditText) findViewById(R.id.mobedittxt);
-        edPassword=(EditText) findViewById(R.id.pwdedittxt);
+        btnLogin=(Button) findViewById(R.id.btnLogin);
+        edEmail= (EditText)findViewById(R.id.editTextEmail);
+        edPassword=(EditText)findViewById(R.id.editTextPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,13 +66,13 @@ class Login extends AppCompatActivity {
                         }
                         else
                         {
-                            SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+                            SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("email", email);
                             // this should be salted
                             editor.putString("password", password);
                             editor.commit();
-                            startActivity(new Intent(getApplicationContext(),HomePage.class));
+                            startActivity(new Intent(Login.this,HomePage.class));
 
                         }
                     }
@@ -97,7 +99,7 @@ class Login extends AppCompatActivity {
 
 
     public void openSignup(){
-        Intent i = new Intent(this,Signup_Form.class);
+        Intent i = new Intent(Login.this,Signup_Form.class);
         startActivity(i);
     }
 }

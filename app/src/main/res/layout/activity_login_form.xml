@@ -1,105 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Login"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
 
-    <Button
-        android:id="@+id/signupbtn"
-        android:layout_width="308dp"
-        android:layout_height="53dp"
-        android:background="@drawable/button_rounded"
-        android:text="@string/signupbtn"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/loginbtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/loginbtn"
-        app:layout_constraintTop_toBottomOf="@+id/quetext"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/avatarimg"
         android:layout_width="140dp"
         android:layout_height="144dp"
         android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.074"
-        app:srcCompat="@drawable/avatar" />
+        app:srcCompat="@drawable/avatar"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="0dp"
+
+        />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mobedittxt"
-        android:layout_width="321dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/avatarimg"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="@+id/avatarimg"
-        app:layout_constraintTop_toBottomOf="@+id/avatarimg"
-        app:layout_constraintVertical_bias="0.068">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/text_color"
+        >
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="321dp"
-            android:layout_height="42dp"
-            android:hint="@string/mobtxt"
-            android:inputType="phone"
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/emailtxt"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pwdedittxt"
-        android:layout_width="319dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/mobedittxt"
-        app:layout_constraintTop_toBottomOf="@+id/mobedittxt"
-        app:layout_constraintVertical_bias="0.0">
-
-        <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/text_color"
+        >
+        <EditText
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
             android:hint="@string/passtxt"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/quetext"
-        android:layout_width="292dp"
-        android:layout_height="41dp"
-        android:text="@string/noaccque"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/loginbtn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/loginbtn"
-        app:layout_constraintTop_toBottomOf="@+id/loginbtn"
-        app:layout_constraintVertical_bias="0.202" />
-
     <Button
-        android:id="@+id/loginbtn"
-        android:layout_width="309dp"
-        android:layout_height="53dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_rounded"
         android:text="@string/loginbtn"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/pwdedittxt"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/pwdedittxt"
-        app:layout_constraintTop_toBottomOf="@+id/pwdedittxt"
-        app:layout_constraintVertical_bias="0.049" />
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/accque"
+        android:textSize="20sp"
+        android:textColor="@color/text_color"
+        />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_rounded"
+        android:text="@string/registbtn"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+</LinearLayout>

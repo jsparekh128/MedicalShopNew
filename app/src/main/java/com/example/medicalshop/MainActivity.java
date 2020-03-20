@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT=4000;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("user",Context.MODE_PRIVATE);
                 String email = sharedPreferences.getString("email", null);
                 String password = sharedPreferences.getString("password", null);
                 if (email != null && password != null ) {

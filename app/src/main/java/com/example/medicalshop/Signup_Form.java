@@ -29,89 +29,86 @@ public class Signup_Form extends AppCompatActivity {
     DatabaseReference mDatabaseReference;
     FirebaseAuth mFirebaseAuth;
     boolean flag=true;
-    private Button btnlogin;
+    Button btnlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup__form);
         getSupportActionBar().setTitle("Sign up");
-        edName = (EditText) findViewById(R.id.editTextName);
-        edEmail = (EditText) findViewById(R.id.editTextEmail);
-        edMobile = (EditText) findViewById(R.id.editTextMobile);
-        edPassword = (EditText) findViewById(R.id.editTextPassword);
+
         btnReg = (Button) findViewById(R.id.btnRegister);
         btnlogin = (Button) findViewById(R.id.btnLogin);
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLogin();
-            }
-        });
+            btnlogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Signup_Form.this, Login.class));
 
-        database=FirebaseDatabase.getInstance();
-        mFirebaseAuth=FirebaseAuth.getInstance();
+                }
+            });
 
 
-        mDatabaseReference=database.getReference("PersonDetails");
+        database = FirebaseDatabase.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
+
+        mDatabaseReference = database.getReference("PersonDetails");
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String pname=edName.getText().toString();
-                final String pemail=edEmail.getText().toString();
-                final String pmobile=edMobile.getText().toString();
-                final String ppassword=edPassword.getText().toString();
-                if(TextUtils.isEmpty(pname))
-                {
+                edName = (EditText) findViewById(R.id.editTextName);
+                edEmail = (EditText) findViewById(R.id.editTextEmail);
+                edMobile = (EditText) findViewById(R.id.editTextMobile);
+                edPassword = (EditText) findViewById(R.id.editTextPassword);
+                final String pname = edName.getText().toString();
+                final String pemail = edEmail.getText().toString();
+                final String pmobile = edMobile.getText().toString();
+                final String ppassword = edPassword.getText().toString();
+                if (TextUtils.isEmpty(pname)) {
                     edName.setError("Please enter Name");
-                    flag=false;
+                    flag = false;
                 }
-                if(TextUtils.isEmpty(pemail))
-                {
+                if (TextUtils.isEmpty(pemail)) {
                     edEmail.setError("Please enter Email");
-                    flag=false;
+                    flag = false;
                 }
-                if(TextUtils.isEmpty(pmobile))
-                {
+                if (TextUtils.isEmpty(pmobile)) {
                     edMobile.setError("Please enter Mobile");
-                    flag=false;
+                    flag = false;
                 }
-                if(TextUtils.isEmpty(ppassword))
-                {
+                if (TextUtils.isEmpty(ppassword)) {
                     edPassword.setError("Please enter Password");
-                    flag=false;
+                    flag = false;
                 }
 
 
-                if(flag)
-                {
-                mFirebaseAuth.signInWithEmailAndPassword(pemail, ppassword)
-                        .addOnCompleteListener(Signup_Form.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                            Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_LONG).show();
-                                            startActivity(new Intent(getApplicationContext(),Login.class));
+                if (flag) {
+                    mFirebaseAuth.createUserWithEmailAndPassword(pemail, ppassword)
+                            .addOnCompleteListener(Signup_Form.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Person perDetail = new Person(pname, pemail, pmobile, ppassword);
+                                        database.getReference("PersonDetails").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(perDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_LONG).show();
+                                                startActivity(new Intent(getApplicationContext(), Login.class));
 
-                                        }
-                                    };
+                                            }
+                                        });
 
-                        });
-
-                }
-
-                else
-                {
-                    Toast.makeText(Signup_Form.this,"Please Enter Valid Data",Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(Signup_Form.this, "Please Enter Valid Data", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
                 }
             }
-        });
 
-
-    }
-    public void openLogin(){
-        Intent i=new Intent(this,Login.class);
-        startActivity(i);
+            });
     }
 }
+
+

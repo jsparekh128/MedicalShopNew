@@ -14,8 +14,7 @@
         android:id="@+id/avatarimg"
         android:layout_width="140dp"
         android:layout_height="144dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="70dp"
+        android:layout_marginStart="100dp"
         android:contentDescription="@string/todo"
         android:background="@color/background"
         app:srcCompat="@drawable/avatar" />
@@ -74,7 +73,7 @@
             android:ems="10"
             android:hint="@string/mobtxt"
             android:importantForAutofill="no"
-            android:inputType="phone"
+            android:inputType="text"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
