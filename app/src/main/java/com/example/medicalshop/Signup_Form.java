@@ -3,12 +3,9 @@ package com.example.medicalshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,8 +22,8 @@ public class Signup_Form extends AppCompatActivity {
     EditText edName,edEmail,edMobile,edPassword;
     Button btnReg;
     FirebaseDatabase database;
-    DatabaseReference mDatabaseReference;
-    FirebaseAuth mFirebaseAuth;
+    DatabaseReference databaseref;
+    FirebaseAuth mAuth;
     boolean flag=true;
     Button btnlogin;
 
@@ -50,10 +46,10 @@ public class Signup_Form extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
 
-        mDatabaseReference = database.getReference("PersonDetails");
+        databaseref = database.getReference("PersonDetails");
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,13 +80,13 @@ public class Signup_Form extends AppCompatActivity {
 
 
                 if (flag) {
-                    mFirebaseAuth.createUserWithEmailAndPassword(pemail, ppassword)
+                    mAuth.createUserWithEmailAndPassword(pemail, ppassword)
                             .addOnCompleteListener(Signup_Form.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Person perDetail = new Person(pname, pemail, pmobile, ppassword);
-                                        database.getReference("PersonDetails").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(perDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        database.getReference("PersonDetails").child(mAuth.getCurrentUser().getUid()).setValue(perDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 Toast.makeText(Signup_Form.this, "Registration Complete", Toast.LENGTH_LONG).show();
