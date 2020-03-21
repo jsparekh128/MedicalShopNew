@@ -21,17 +21,9 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                SharedPreferences sharedPreferences = getSharedPreferences("user",Context.MODE_PRIVATE);
-                String email = sharedPreferences.getString("email", null);
-                String password = sharedPreferences.getString("password", null);
-                if (email != null && password != null ) {
-                    startActivity(new Intent(getApplicationContext(),HomePage.class));
 
-                }
-                else
-                {
-                    startActivity(new Intent(getApplicationContext(),Signup_Form.class));
-                }
+                    startActivity(new Intent(getApplicationContext(),Login.class));
+               // }
 
 
             }
