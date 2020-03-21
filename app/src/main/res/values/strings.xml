@@ -5,6 +5,7 @@
     <string name="emailtxt">E-mail</string>
     <string name="mobtxt">Mobile No</string>
     <string name="passtxt">Password</string>
+    <string name="usernametxt">Username</string>
     <string name="registbtn">Register</string>
     <string name="accque">Have an account?</string>
     <string name="loginbtn">Login</string>
@@ -19,5 +20,8 @@
     <string name="profiletxt">Profile</string>
     <string name="aboutustxt">About Us</string>
     <string name="storetxt">Store</string>
+    <string name="loginadmin">Login as Admin? Click Here!</string>
+    <string name="noadmintxt">Not a Admin?</string>
+    <string name="btnadminloign">Login Admin</string>
 
 </resources>

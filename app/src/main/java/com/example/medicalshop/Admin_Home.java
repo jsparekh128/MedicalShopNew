@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 
-public class Admin_Home extends AppCompatActivity {
+public class Admin_Home extends AppCompatActivity implements View.OnClickListener {
     CardView corder,cprofile,caboutus,cstore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +20,10 @@ public class Admin_Home extends AppCompatActivity {
         cstore=(CardView)findViewById(R.id.crdstore);
         cprofile=(CardView)findViewById(R.id.crdprofile);
 
-        caboutus.setOnClickListener((View.OnClickListener) this);
-        corder.setOnClickListener((View.OnClickListener) this);
-        cprofile.setOnClickListener((View.OnClickListener) this);
-        cstore.setOnClickListener((View.OnClickListener) this);
+        caboutus.setOnClickListener(this);
+        corder.setOnClickListener(this);
+        cprofile.setOnClickListener(this);
+        cstore.setOnClickListener(this);
 
     }
     public void onClick(View v){
