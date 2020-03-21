@@ -59,9 +59,9 @@
                 android:orientation="vertical">
                 <ImageView
                     android:id="@+id/orderimg"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/order"
                     android:contentDescription="@string/order"/>
 
@@ -103,9 +103,9 @@
 
                 <ImageView
                     android:id="@+id/aboutusimg"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/aboutus"
                     android:contentDescription="@string/aboutus"/>
 
@@ -147,10 +147,10 @@
                 android:orientation="vertical">
                 <ImageView
                     android:id="@+id/profileimg"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/profile"
-                    android:layout_gravity="center"
                     android:contentDescription="@string/profiletxt"/>
                 <TextView
                     android:id="@+id/proftxt"
@@ -193,10 +193,10 @@
 
                 <ImageView
                     android:id="@+id/storeimg"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/store"
-                    android:layout_gravity="center"
                     android:contentDescription="@string/store"/>
 
                 <TextView
