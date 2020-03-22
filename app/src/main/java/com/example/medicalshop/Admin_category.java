@@ -4,11 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Admin_aboutus extends AppCompatActivity {
+public class Admin_category extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_aboutus);
+        setContentView(R.layout.activity_admin_category);
     }
 }

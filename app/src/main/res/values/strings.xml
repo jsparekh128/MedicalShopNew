@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">MedicalShop</string>
     <string name="todo">todo</string>
+    <string-array name="product_item">
+        <item>Add Product</item>
+        <item>Update Product</item>
+        <item>Delete Product</item>
+    </string-array>
+    <string-array name="category_item">
+        <item>Add Category</item>
+        <item>Update Category</item>
+        <item>Delete Category</item>
+    </string-array>
+    <string name="spinner_txt">Please Select Your Performance : </string>
     <string name="nametxt">Name</string>
     <string name="emailtxt">E-mail</string>
     <string name="mobtxt">Mobile No</string>
@@ -12,7 +23,8 @@
     <string name="noaccque">Dont have an account?</string>
     <string name="signupbtn">Sign Up</string>
     <string name="textadmin">"WELCOME ADMIN !!"</string>
-    <string name="admin">ADMIN</string>
+    <string name="admin">HEY ADMIN!</string>
+    <string name="orderviewtxt">View Order</string>
     <string name="producttxt">Product Detail</string>
     <string name="categorytxt">Category Detail</string>
     <string name="myprofile">PROFILE</string>
