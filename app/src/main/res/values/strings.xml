@@ -12,6 +12,9 @@
     <string name="noaccque">Dont have an account?</string>
     <string name="signupbtn">Sign Up</string>
     <string name="textadmin">"WELCOME ADMIN !!"</string>
+    <string name="admin">ADMIN</string>
+    <string name="producttxt">Product Detail</string>
+    <string name="categorytxt">Category Detail</string>
     <string name="myprofile">PROFILE</string>
     <string name="store">STORE</string>
     <string name="aboutus">ABOUT US</string>
