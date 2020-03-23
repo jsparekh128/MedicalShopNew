@@ -35,15 +35,73 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/spinner_txt"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:padding="10dp"/>
         <Spinner
             android:id="@+id/prodropdown"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:entries="@array/product_item" />
+            android:entries="@array/product_item"
+            android:padding="10dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6" />
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/catname"
+            android:textSize="20sp"
+            android:padding="10dp"/>
+        <Spinner
+            android:id="@+id/catdropdown"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:entries="@array/category"
+            android:padding="10dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/text_color"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/proname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/proname"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColorHint="@color/text_color"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/proprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/proprice"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 </LinearLayout>

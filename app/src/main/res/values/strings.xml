@@ -11,6 +11,10 @@
         <item>Update Category</item>
         <item>Delete Category</item>
     </string-array>
+    <string-array name="category">Select Product Category : </string-array>
+    <string name="proname">Product Name  </string>
+    <string name="proprice">Product Price  </string>
+    <string name="catname">Select Category  </string>
     <string name="spinner_txt">Please Select Your Performance : </string>
     <string name="nametxt">Name</string>
     <string name="emailtxt">E-mail</string>
