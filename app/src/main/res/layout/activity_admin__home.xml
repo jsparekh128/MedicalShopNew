@@ -10,7 +10,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/todo" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -25,14 +26,15 @@
             android:layout_weight="0.9">
 
             <ImageView
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ava"/>
+                android:src="@drawable/ava"
+                android:contentDescription="@string/todo" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_marginTop="2dp"
+
                 android:text="@string/admin"
                 android:textSize="40sp"
                 android:textColor="@color/backcolor"
@@ -51,13 +53,13 @@
                 android:id="@+id/productbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="@color/backcolor"
+                android:padding="10dp"
                 android:text="@string/producttxt"
-                android:textSize="25sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="20dp"
-                android:textColor="@color/text_color"/>
+                android:textColor="@color/text_color"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/categorybtn"
@@ -67,8 +69,8 @@
                 android:text="@string/categorytxt"
                 android:textSize="25sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
                 android:textColor="@color/text_color"/>
 
             <Button
@@ -79,8 +81,8 @@
                 android:text="@string/orderviewtxt"
                 android:textSize="25sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
                 android:textColor="@color/text_color"/>
         </LinearLayout>
     </LinearLayout>
