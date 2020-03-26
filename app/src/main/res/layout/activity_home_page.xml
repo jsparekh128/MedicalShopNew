@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtId"
             android:text="@string/logintxt"
+            android:gravity="center_horizontal"
             android:textSize="40sp"
             android:textColor="@color/backcolor"
             android:textStyle="bold"
@@ -48,33 +49,35 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="10dp"
+            android:clickable="true"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            android:clickable="true">
+            app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/orderimg"
-                    android:layout_width="102dp"
-                    android:layout_height="147dp"
-                    android:src="@drawable/order"
-                    android:contentDescription="@string/order"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/order"
+                    android:src="@drawable/order" />
 
                 <TextView
                     android:id="@+id/ordertxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/order"
                     android:textAlignment="center"
-                    android:layout_gravity="center_horizontal"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -102,10 +105,11 @@
 
                 <ImageView
                     android:id="@+id/aboutusimg"
-                    android:layout_width="102dp"
-                    android:layout_height="147dp"
-                    android:src="@drawable/aboutus"
-                    android:contentDescription="@string/aboutus"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/aboutus"
+                    android:src="@drawable/aboutus" />
 
                 <TextView
                     android:id="@+id/aboutustxt"
@@ -143,12 +147,14 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/profileimg"
-                    android:layout_width="102dp"
-                    android:layout_height="147dp"
-                    android:src="@drawable/profile"
-                    android:contentDescription="@string/profiletxt"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/profiletxt"
+                    android:src="@drawable/profile" />
                 <TextView
                     android:id="@+id/proftxt"
                     android:layout_width="wrap_content"
@@ -190,10 +196,11 @@
 
                 <ImageView
                     android:id="@+id/storeimg"
-                    android:layout_width="102dp"
-                    android:layout_height="147dp"
-                    android:src="@drawable/store"
-                    android:contentDescription="@string/store"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/store"
+                    android:src="@drawable/store" />
 
                 <TextView
                     android:id="@+id/storetxt"
@@ -204,7 +211,8 @@
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:visibility="visible" />
 
 
             </LinearLayout>

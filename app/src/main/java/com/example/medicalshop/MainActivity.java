@@ -1,15 +1,11 @@
 package com.example.medicalshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT=4000;
@@ -24,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(new Intent(getApplicationContext(),Login.class));
                // }
-
 
             }
         },SPLASH_TIME_OUT);
