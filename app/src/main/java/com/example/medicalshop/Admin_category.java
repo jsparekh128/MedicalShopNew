@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +33,8 @@ public class Admin_category extends AppCompatActivity implements AdapterView.OnI
     ArrayAdapter choicead;
     EditText catname;
     TextInputLayout cattxt;
+
+    String cname="";
 
     DatabaseReference  dbcategory;
     ValueEventListener listener;
@@ -96,22 +100,24 @@ public class Admin_category extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    private void addcategory(){
-        String cname=catname.getText().toString();
+    public void addcategory(){
 
         if(!TextUtils.isEmpty(cname)){
-            String id=dbcategory.push().getKey();
+            cname=catname.getText().toString().trim();
+            dbcategory.push().setValue(cname).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    catname.setText(cname);
+                    list.clear();
+                    retrivedata();
+                    catead.notifyDataSetChanged();
+                }
+            });
+            Toast.makeText(this,"Category Inserted.",Toast.LENGTH_LONG).show();
 
-            Category c=new Category(cname);
-            dbcategory.child(id).setValue(c);
-
-            Toast.makeText(this,"Category Added.",Toast.LENGTH_LONG).show();
-            catname.setText("");
-            list.clear();
-            retrivedata();
-            catead.notifyDataSetChanged();
         }
         else{
+
             Toast.makeText(this,"Please enter the Category.",Toast.LENGTH_LONG).show();
         }
     }
