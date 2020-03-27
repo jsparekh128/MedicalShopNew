@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_icon_2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin_category"></activity>
+        <activity android:name=".User_Order"></activity>
+        <activity android:name=".Admin_category" />
         <activity android:name=".Admin_order" />
         <activity android:name=".Admin_store" />
         <activity android:name=".Admin_product" />
