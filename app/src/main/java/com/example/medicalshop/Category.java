@@ -1,20 +1,14 @@
 package com.example.medicalshop;
 
 public class Category {
-    String categoryid;
     String categoryname;
 
     public Category(){
 
     }
 
-    public Category(String categoryid, String categoryname) {
-        this.categoryid = categoryid;
+    public Category(String categoryname) {
         this.categoryname = categoryname;
-    }
-
-    public String getCategoryid() {
-        return categoryid;
     }
 
     public String getCategoryname() {

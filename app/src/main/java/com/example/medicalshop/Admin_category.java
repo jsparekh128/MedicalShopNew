@@ -11,39 +11,46 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Admin_category extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner selcat,catspin;
     TextView selcattxt;
     Button btn;
-    ArrayAdapter ad;
+    ArrayAdapter choicead;
     EditText catname;
     TextInputLayout cattxt;
 
     DatabaseReference  dbcategory;
+    ValueEventListener listener;
+    ArrayAdapter<String> catead;
+    ArrayList<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
 
-        dbcategory= FirebaseDatabase.getInstance().getReference("category");
-
         catspin= findViewById(R.id.catydropdown);
         selcat= findViewById(R.id.catupdropdown);
-        ad= ArrayAdapter.createFromResource(this, R.array.category_item, android.R.layout.simple_spinner_item);
+        choicead= ArrayAdapter.createFromResource(this, R.array.category_item, android.R.layout.simple_spinner_item);
         selcattxt= findViewById(R.id.cattxt);
         btn= findViewById(R.id.btn);
         catname= findViewById(R.id.catname);
         cattxt=findViewById(R.id.cattxtnm);
 
-        catspin.setAdapter(ad);
+        catspin.setAdapter(choicead);
         catspin.setOnItemSelectedListener(this);
 
         btn.setOnClickListener(new View.OnClickListener(){
@@ -52,6 +59,13 @@ public class Admin_category extends AppCompatActivity implements AdapterView.OnI
                 addcategory();
             }
         });
+
+        dbcategory= FirebaseDatabase.getInstance().getReference("category");
+        list=new ArrayList<>();
+        catead=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,list);
+
+        selcat.setAdapter(catead);
+        retrivedata();
 
     }
 
@@ -73,6 +87,7 @@ public class Admin_category extends AppCompatActivity implements AdapterView.OnI
 
             catname.setVisibility(View.INVISIBLE);
             cattxt.setVisibility(View.INVISIBLE);
+
         }
     }
 
@@ -87,13 +102,34 @@ public class Admin_category extends AppCompatActivity implements AdapterView.OnI
         if(!TextUtils.isEmpty(cname)){
             String id=dbcategory.push().getKey();
 
-            Category c=new Category(id,cname);
+            Category c=new Category(cname);
             dbcategory.child(id).setValue(c);
 
             Toast.makeText(this,"Category Added.",Toast.LENGTH_LONG).show();
+            catname.setText("");
+            list.clear();
+            retrivedata();
+            catead.notifyDataSetChanged();
         }
         else{
             Toast.makeText(this,"Please enter the Category.",Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void retrivedata(){
+        listener=dbcategory.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot catitem:dataSnapshot.getChildren()){
+                    list.add(catitem.getValue().toString());
+                }
+                catead.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
