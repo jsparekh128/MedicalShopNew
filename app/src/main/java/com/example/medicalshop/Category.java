@@ -1,7 +1,7 @@
 package com.example.medicalshop;
 
 public class Category {
-    String categoryname;
+    public String categoryname;
 
     public Category(){
 
