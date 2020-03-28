@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -21,16 +22,14 @@ public class User_Order extends AppCompatActivity {
     RecyclerView ordrecyclerview;
     ArrayList<ProductJay> list;
     myAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__order);
         ordrecyclerview=(RecyclerView)findViewById(R.id.orderRecyclerView);
-
-
-
-
+        layoutManager= new LinearLayoutManager(this);
         reference= FirebaseDatabase.getInstance().getReference().child("ProductJay");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -41,8 +40,10 @@ public class User_Order extends AppCompatActivity {
                     ProductJay p=dataSnapshot1.getValue(ProductJay.class);
                     list.add(p);
                 }
+                ordrecyclerview.setLayoutManager(layoutManager);
                 adapter=new myAdapter(User_Order.this,list);
                 ordrecyclerview.setAdapter(adapter);
+
 
             }
 

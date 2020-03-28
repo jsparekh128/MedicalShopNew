@@ -34,6 +34,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         {
             case R.id.crdorder:
                 i=new Intent(this,User_Order.class);
+                startActivity(i);
                 break;
         }
 
