@@ -36,6 +36,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 i=new Intent(this,User_Order.class);
                 startActivity(i);
                 break;
+
         }
 
     }
