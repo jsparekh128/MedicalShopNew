@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_category"
+    tools:context=".Admin_tablet"
     android:orientation="vertical"
     android:weightSum="8">
 
@@ -14,42 +14,36 @@
         android:gravity="center_horizontal"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/categorytxt"
-            android:textColor="@color/backcolor"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="2"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="20dp">
 
         <TextView
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/spinner_txt"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="5dp"/>
+
         <Spinner
-            android:layout_marginTop="10dp"
             android:id="@+id/catydropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/category_item"/>
+            android:layout_marginTop="10dp"
+            android:entries="@array/category_item" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/cattxt"
@@ -57,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/catname"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="5dp"
             android:visibility="gone"/>
         <Spinner
@@ -92,6 +86,15 @@
                 android:visibility="gone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/selcattxt"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:visibility="gone"/>
+
         <Button
             android:id="@+id/btn"
             android:layout_gravity="center_horizontal"
@@ -101,8 +104,9 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/button_rounded_blue"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
+
+
     </LinearLayout>
 
 </LinearLayout>
