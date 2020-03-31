@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                  String sharedemail = sharedPreferences.getString("email", null);
                  String sharedpassword = sharedPreferences.getString("password", null);
                     if (sharedemail != null && sharedpassword != null ) {
-                 startActivity(new Intent(getApplicationContext(),HomePage.class));
+                     startActivity(new Intent(getApplicationContext(),HomePage.class));
 
                  }
                 else

@@ -13,6 +13,7 @@
     <string-array name="category">Select Product Category :</string-array>
     <string name="addtxt"> Add </string>
     <string name="proid">Product ID </string>
+    <string-array name="category">Select Product Category :</string-array>
     <string name="proname">Product Name  </string>
     <string name="proprice">Product Price  </string>
     <string name="procontent">Product Content </string>
@@ -30,25 +31,20 @@
     <string name="noaccque">Dont have an account?</string>
     <string name="signupbtn">Sign Up</string>
     <string name="textadmin">"WELCOME ADMIN !!"</string>
-    <string name="admin">ADMIN!</string>
+    <string name="admin">HEY ADMIN!</string>
     <string name="orderviewtxt">View Order</string>
-    <string name="producttxt">Products</string>
-    <string name="categorytxt">Categories</string>
+    <string name="producttxt">Product Detail</string>
+    <string name="categorytxt">Category Detail</string>
     <string name="myprofile">PROFILE</string>
     <string name="store">STORE</string>
     <string name="aboutus">ABOUT US</string>
     <string name="logintxt">"WELCOME USER !!"</string>
     <string name="order">Order</string>
-    <string name="tablettxt">Tablet</string>
-    <string name="capsuletxt">Capsule</string>
-    <string name="syruptxt">Syrup</string>
-    <string name="ointtxt">Ointment</string>
     <string name="profiletxt">Profile</string>
     <string name="aboutustxt">About Us</string>
     <string name="storetxt">Store</string>
     <string name="loginadmin">Login as Admin? Click Here!</string>
     <string name="noadmintxt">Not a Admin?</string>
     <string name="btnadminloign">Login Admin</string>
-    <string name="productadd">Add Product</string>
 
 </resources>
