@@ -3,47 +3,55 @@ package com.example.medicalshop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.cardview.widget.CardView;
 
 public class Admin_Home extends AppCompatActivity implements View.OnClickListener {
-    Button probtn,catbtn,viewbtn;
+
+    CardView syrupcrd,tabletcrd,ointcrd,capsulecrd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin__home);
 
-        probtn=(Button)findViewById(R.id.productbtn);
-        catbtn=(Button)findViewById(R.id.categorybtn);
-        viewbtn=(Button)findViewById(R.id.ordviewbtn);
+        syrupcrd=findViewById(R.id.syrupcrd);
+        capsulecrd=findViewById(R.id.capsulecrd);
+        tabletcrd=findViewById(R.id.tabletcrd);
+        ointcrd=findViewById(R.id.ointcrd);
 
-        probtn.setOnClickListener(this);
-        catbtn.setOnClickListener(this);
-        viewbtn.setOnClickListener(this);
-
+        syrupcrd.setOnClickListener(this);
+        capsulecrd.setOnClickListener(this);
+        ointcrd.setOnClickListener(this);
+        tabletcrd.setOnClickListener(this);
     }
-    public void onClick(View v){
+
+    @Override
+    public void onClick(View v) {
         Intent i;
 
         switch(v.getId()){
-            case R.id.productbtn:
-                i=new Intent(this, Admin_product.class);
+
+            case R.id.capsulecrd:
+                i=new Intent(this,Admin_capsule.class);
                 startActivity(i);
                 break;
 
-            case R.id.categorybtn :
-                i=new Intent(this,Admin_category.class);
+            case R.id.ointcrd:
+                i=new Intent(this,Admin_oint.class);
                 startActivity(i);
                 break;
 
-            case R.id.ordviewbtn :
-                i=new Intent(this,Admin_order.class);
+            case R.id.tabletcrd:
+                i=new Intent(this,Admin_tablet.class);
                 startActivity(i);
                 break;
 
+            case R.id.syrupcrd:
+                i=new Intent(this,Admin_syrup.class);
+                startActivity(i);
+                break;
         }
     }
-
 }
