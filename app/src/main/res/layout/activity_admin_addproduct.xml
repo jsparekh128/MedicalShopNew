@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/productadd"
-            android:textSize="25dp"
+            android:textSize="20sp"
             android:textColor="@color/backcolor"/>
     </LinearLayout>
 
@@ -40,12 +40,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/cateory"
+                android:id="@+id/cateoname"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:padding="10dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="15dp"/>
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:text=""
+                android:visibility="visible"
+                android:textColor="@color/backcolor"
+                android:textSize="15sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -63,9 +65,9 @@
                     android:ems="10"
                     android:hint="@string/proid"
                     android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    android:textSize="15sp"
-                    android:textColor="@color/backcolor"/>
+                    android:inputType="text"
+                    android:textColor="@color/backcolor"
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +86,7 @@
                     android:ems="10"
                     android:hint="@string/proname"
                     android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:textSize="15sp"
                     android:textColor="@color/backcolor"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -105,7 +107,7 @@
                     android:ems="10"
                     android:hint="@string/proprice"
                     android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:textSize="15sp"
                     android:textColor="@color/backcolor"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -119,14 +121,14 @@
                 android:textColorHint="@color/backcolor">
 
                 <EditText
-                    android:id="@+id/procontemt"
+                    android:id="@+id/procon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/procontent"
                     android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:textSize="15sp"
                     android:textColor="@color/backcolor"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -140,7 +142,7 @@
                 android:background="@drawable/button_rounded"
                 android:text="@string/addtxt"
                 android:textColor="@color/backcolor"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </GridLayout>
     </LinearLayout>

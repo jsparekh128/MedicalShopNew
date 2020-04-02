@@ -9,6 +9,6 @@ public class Admin_tablet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_capsule);
+        setContentView(R.layout.activity_admin_tablet);
     }
 }

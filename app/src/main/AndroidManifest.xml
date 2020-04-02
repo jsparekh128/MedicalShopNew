@@ -13,10 +13,11 @@
         tools:replace="android:icon">
         <activity android:name=".UserProfile"></activity>
         <activity android:name=".User_Order" />
-        <activity android:name=".Admin_category" />
-        <activity android:name=".Admin_order" />
-        <activity android:name=".Admin_store" />
-        <activity android:name=".Admin_product" />
+        <activity android:name=".Admin_addproduct"/>
+        <activity android:name=".Admin_capsule" />
+        <activity android:name=".Admin_syrup" />
+        <activity android:name=".Admin_tablet" />
+        <activity android:name=".Admin_oint" />
         <activity android:name=".Admin_Home" />
         <activity android:name=".Login" />
         <activity android:name=".HomePage" />
