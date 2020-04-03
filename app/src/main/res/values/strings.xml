@@ -35,7 +35,7 @@
     <string name="producttxt">Product Detail</string>
     <string name="categorytxt">Category Detail</string>
     <string name="myprofile">PROFILE</string>
-    <string name="store">STORE</string>
+    <string name="store">STORE/RATING</string>
     <string name="aboutus">ABOUT US</string>
     <string name="logintxt">"WELCOME USER !!"</string>
     <string name="order">Order</string>
