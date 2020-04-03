@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,8 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Admin_addproduct extends AppCompatActivity implements View.OnClickListener {
 
-    TextView cateoname;
-    EditText proid,proname,procon,proprice;
+    EditText proid,proname,procon,proprice,cateoname;
     Button addbtn;
     DatabaseReference dbref;
     String catname;
@@ -61,43 +59,25 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
         catname=data;
 
         cateoname.setText(data);
+        proid.setText(String.valueOf(maxid+1));
     }
 
     @Override
     public void onClick(View v) {
-        if(catname.equals("Ointment")){
-            dbref=FirebaseDatabase.getInstance().getReference("Products/Ointment");
 
             Float price=Float.parseFloat(proprice.getText().toString().trim());
-            Integer id=Integer.parseInt(proid.getText().toString().trim());
 
             p.setProductname(proname.getText().toString().trim());
             p.setProductcontnt(procon.getText().toString().trim());
             p.setProductprice(price);
-            p.setProductid(id);
+            p.setCategoryname(cateoname.getText().toString().trim());
 
             dbref.child(String.valueOf(maxid+1)).setValue(p);
 
             Toast.makeText(this,"Data Inserted Successfully",Toast.LENGTH_LONG).show();
 
-            proname.setText("");
-            proid.setText("");
-            proprice.setText("");
-            procon.setText("");
-            proid.setFocusable(true);
+            Intent intent=new Intent(this,Admin_oint.class);
+            startActivity(intent);
         }
 
-        if(catname.equals("Syrup")){
-            dbref=FirebaseDatabase.getInstance().getReference("Products/Syrup");
-        }
-
-        if(catname.equals("Tablet")){
-            dbref=FirebaseDatabase.getInstance().getReference("Products/Tablet");
-        }
-
-        if(catname.equals("Capsule")){
-            dbref=FirebaseDatabase.getInstance().getReference("Products/Capsule");
-        }
-
-    }
 }

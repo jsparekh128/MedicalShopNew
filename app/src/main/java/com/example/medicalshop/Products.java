@@ -1,20 +1,20 @@
 package com.example.medicalshop;
 
 public class Products {
-    public Integer productid;
+    public String categoryname;
     public String productname;
     public String productcontnt;
     public Float productprice;
 
-    public Products(){
+    public Products() {
     }
 
-    public int getProductid() {
-        return productid;
+    public String getCategoryname() {
+        return categoryname;
     }
 
-    public void setProductid(Integer productid) {
-        this.productid = productid;
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
     }
 
     public String getProductname() {
@@ -33,7 +33,7 @@ public class Products {
         this.productcontnt = productcontnt;
     }
 
-    public float getProductprice() {
+    public Float getProductprice() {
         return productprice;
     }
 
@@ -41,3 +41,4 @@ public class Products {
         this.productprice = productprice;
     }
 }
+

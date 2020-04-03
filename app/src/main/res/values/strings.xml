@@ -17,7 +17,7 @@
     <string name="proprice">Product Price  </string>
     <string name="procontent">Product Content </string>
     <string name="catoname">Enter Category</string>
-    <string name="catname">Select Category  </string>
+    <string name="catname"> Category Name </string>
     <string name="spinner_txt">Please Select Your Performance : </string>
     <string name="nametxt">Name</string>
     <string name="emailtxt">E-mail</string>
