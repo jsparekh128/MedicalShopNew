@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
 
         TextView pname,pqty,prate,pdescription,pcategory;
         Button btnbuy;
+        ImageView imgord;
         public myViewBinder(@NonNull View itemView) {
             super(itemView);
             pname=(TextView)itemView.findViewById(R.id.txtpname);
@@ -56,6 +58,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
             pcategory=(TextView)itemView.findViewById(R.id.txtpcategory);
            // pdescription=(TextView)itemView.findViewById(R.id.txtpdescription);
             btnbuy=(Button)itemView.findViewById(R.id.btnBuy);
+            imgord=(ImageView)itemView.findViewById(R.id.imgord);
 
         }
         public void onClick(final int id)
