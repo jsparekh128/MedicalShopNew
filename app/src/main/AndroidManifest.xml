@@ -11,10 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".UserRating"></activity>
+        <activity android:name=".UserProductActivity"></activity>
+        <activity android:name=".UserRating" />
         <activity android:name=".UserProfile" />
         <activity android:name=".User_Order" />
-        <activity android:name=".Admin_addproduct"/>
+        <activity android:name=".Admin_addproduct" />
         <activity android:name=".Admin_capsule" />
         <activity android:name=".Admin_syrup" />
         <activity android:name=".Admin_tablet" />

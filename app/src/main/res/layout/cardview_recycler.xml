@@ -1,85 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:weightSum="2"
-    android:layout_margin="10dp">
-
-    <ImageView
-        android:id="@+id/imgord"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/store"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageView>
-
-    <TextView
-        android:id="@+id/txtpname"
-        android:layout_width="wrap_content"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Product Name"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imgord"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/imgord"
+            android:src="@drawable/order">
 
-    </TextView>
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtpname"
+            android:text="Title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_toRightOf="@+id/imgord"
+            android:layout_toEndOf="@+id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
 
-    <TextView
-        android:id="@+id/txtpcategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Category"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs."
+            android:id="@+id/txtrs"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/imgord"
+            android:layout_toEndOf="@id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/txtpname"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate"
+            android:id="@+id/txtprate"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/txtrs"
+            android:layout_toEndOf="@id/txtrs"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/txtpname"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:id="@+id/txtpdescription"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/imgord"
+            android:layout_toEndOf="@id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/txtrs"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded"
+            android:layout_toRightOf="@id/txtprate"
+            android:layout_toEndOf="@id/txtprate"
+            android:layout_marginLeft="100dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:text="Add"
+            android:id="@+id/btnadd"
+            android:clickable="true"
+            />
+    </RelativeLayout>
 
-    </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:text="Rs"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imgord"
-        app:layout_constraintTop_toBottomOf="@+id/txtpname">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="5dp"
-        android:text="Rate"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imgord"
-        app:layout_constraintTop_toBottomOf="@+id/txtpname"
-        android:id="@+id/txtprate">
-
-    </TextView>
-
-    <Button
-        android:id="@+id/btnBuy"
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/button_rounded"
-        android:text="Buy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtpcategory">
-
-    </Button>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

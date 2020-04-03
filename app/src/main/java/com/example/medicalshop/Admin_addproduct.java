@@ -71,7 +71,7 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
             p.setProductcontnt(procon.getText().toString().trim());
             p.setProductprice(price);
             p.setCategoryname(cateoname.getText().toString().trim());
-
+            p.setProductid(String.valueOf(maxid+1));
             dbref.child(String.valueOf(maxid+1)).setValue(p);
 
             Toast.makeText(this,"Data Inserted Successfully",Toast.LENGTH_LONG).show();
