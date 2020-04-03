@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_syrup"
+    tools:context=".Admin_Home"
     android:orientation="vertical"
     android:weightSum="8"
     android:padding="20dp"
@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -21,57 +22,62 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/producttxt"
-            android:textSize="30sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_weight="6"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:padding="5dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/capsulecrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                android:focusableInTouchMode="true"
-                android:clickable="true">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/capsuleimg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/capsuletxt"
                         android:src="@drawable/capsule" />
 
                     <TextView
                         android:id="@+id/capsuletxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
                         android:text="@string/capsuletxt"
-                        android:textSize="25dp"
                         android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -79,79 +85,89 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tabletcrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                android:focusableInTouchMode="true"
-                android:clickable="true">
+                android:padding="10dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp">
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/tabletimg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="tablettxt"
                         android:src="@drawable/tablet" />
 
                     <TextView
                         android:id="@+id/tablettxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="@string/tablettxt"
-                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
                         android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:textStyle="bold" />
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/syrupcrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                android:focusableInTouchMode="true"
-                android:clickable="true">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/syrupimg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/capsuletxt"
                         android:src="@drawable/syrup" />
 
                     <TextView
                         android:id="@+id/syruptxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
                         android:text="@string/syruptxt"
-                        android:textSize="25dp"
+                        android:textSize="18sp"
                         android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:textStyle="bold"/>
 
 
                 </LinearLayout>
@@ -160,43 +176,50 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/ointcrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
-                android:focusableInTouchMode="true"
-                android:clickable="true">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp">
+                    android:padding="20dp">
 
                     <ImageView
                         android:id="@+id/ointimg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/capsuletxt"
                         android:src="@drawable/ointmnt" />
 
                     <TextView
                         android:id="@+id/ointtxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
                         android:text="@string/ointtxt"
-                        android:textSize="25dp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_marginTop="10dp"/>
+                        android:textColor="@color/colorPrimary" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-    </LinearLayout>
+        </GridLayout>
 
 
 </LinearLayout>

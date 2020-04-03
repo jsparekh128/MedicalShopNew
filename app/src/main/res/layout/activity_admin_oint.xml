@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_oint"
-    android:orientation="vertical"
-    android:weightSum="8"
-    android:padding="10dp"
     android:background="@drawable/img2"
+    android:backgroundTint="#23020202"
     android:backgroundTintMode="src_atop"
-    android:backgroundTint="#17020202">
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="8"
+    tools:context=".Admin_oint">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="10">
 
         <TextView
+            android:id="@+id/ointnmttxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="9"
             android:text="@string/ointtxt"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_weight="9"/>
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/ointmntimg"
@@ -35,20 +35,20 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/circular_button"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:focusable="true"
             android:src="@drawable/ic_add_black" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
-        android:padding="10dp"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="7"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
 
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp" />
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
 </LinearLayout>
