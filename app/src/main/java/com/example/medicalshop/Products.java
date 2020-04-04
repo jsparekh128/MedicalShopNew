@@ -5,6 +5,15 @@ public class Products {
     public String productname;
     public String productcontnt;
     public Float productprice;
+    public String  productid;
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid;
+    }
 
     public Products() {
     }

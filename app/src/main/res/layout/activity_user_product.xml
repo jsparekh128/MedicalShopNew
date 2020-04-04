@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProductActivity"
+    android:background="@drawable/bg4">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Order Product"
+        android:textColor="@color/backcolor"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/order"
+        android:id="@+id/imgorder1"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="100dp">
+
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtproductname"
+        android:layout_below="@+id/imgorder1"
+        android:layout_marginTop="70dp"
+        android:text="Product Name"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs."
+        android:layout_below="@+id/txtproductname"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold">
+
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtproductrate"
+        android:layout_below="@+id/txtproductname"
+       android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Product Rate"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtproductcategory"
+        android:layout_below="@+id/txtproductrate"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Category"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtproductcontent"
+        android:layout_below="@+id/txtproductcategory"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Content"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:textStyle="bold">
+    </TextView>
+
+    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:initialNumber="1"
+        android:layout_below="@+id/txtproductcontent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        app:textSize="12sp"
+        android:id="@+id/btnqty"
+        app:finalNumber="30">
+
+
+    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnbuy"
+        android:background="@drawable/button_rounded"
+        android:text="Add to Cart"
+        android:layout_below="@+id/btnqty"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerHorizontal="true">
+
+    </Button>
+
+
+
+
+
+</RelativeLayout>

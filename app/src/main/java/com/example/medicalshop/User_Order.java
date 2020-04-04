@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class User_Order extends AppCompatActivity {
     DatabaseReference reference;
     RecyclerView ordrecyclerview;
-    ArrayList<ProductJay> list;
+    ArrayList<Products> list;
     myAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
@@ -30,14 +30,14 @@ public class User_Order extends AppCompatActivity {
         setContentView(R.layout.activity_user__order);
         ordrecyclerview=(RecyclerView)findViewById(R.id.orderRecyclerView);
         layoutManager= new LinearLayoutManager(this);
-        reference= FirebaseDatabase.getInstance().getReference().child("ProductJay");
+        reference= FirebaseDatabase.getInstance().getReference().child("Products");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list=new ArrayList<ProductJay>();
+                list=new ArrayList<Products>();
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
                 {
-                    ProductJay p=dataSnapshot1.getValue(ProductJay.class);
+                    Products p=dataSnapshot1.getValue(Products.class);
                     list.add(p);
                 }
                 ordrecyclerview.setLayoutManager(layoutManager);
