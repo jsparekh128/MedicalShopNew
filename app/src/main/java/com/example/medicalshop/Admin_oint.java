@@ -2,7 +2,6 @@ package com.example.medicalshop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,8 +24,6 @@ public class Admin_oint extends AppCompatActivity implements View.OnClickListene
 
       ointmntimg.setOnClickListener(this);
 
-
-
     }
 
     @Override
@@ -35,7 +32,6 @@ public class Admin_oint extends AppCompatActivity implements View.OnClickListene
         i=new Intent(Admin_oint.this,Admin_addproduct.class);
 
         catname=ointmnttxt.getText().toString();
-        Log.v("category","onCreate:ready : "+catname);
 
         i.putExtra("catename_msg",catname);
         startActivity(i);

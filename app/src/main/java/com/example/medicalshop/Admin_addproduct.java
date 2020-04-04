@@ -76,8 +76,25 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
 
             Toast.makeText(this,"Data Inserted Successfully",Toast.LENGTH_LONG).show();
 
-            Intent intent=new Intent(this,Admin_oint.class);
-            startActivity(intent);
+            if(catname.equals("Ointment")) {
+                Intent intent = new Intent(this, Admin_oint.class);
+                startActivity(intent);
+            }
+
+            if(catname.equals("Syrup")) {
+                 Intent intent = new Intent(this, Admin_syrup.class);
+                 startActivity(intent);
+             }
+
+            if(catname.equals("Capsule")) {
+                 Intent intent = new Intent(this, Admin_capsule.class);
+                 startActivity(intent);
+            }
+
+            if(catname.equals("Tablet")) {
+                 Intent intent = new Intent(this, Admin_tablet.class);
+                 startActivity(intent);
+          }
         }
 
 }
