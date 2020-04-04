@@ -35,7 +35,9 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
         holder.pname.setText(product.get(position).getProductname());
         holder.prate.setText(String.valueOf(product.get(position).getProductprice()));
         holder.pdescription.setText(String.valueOf(product.get(position).getProductcontnt()));
-        holder.onClick(Integer.parseInt(product.get(position).getProductid()));
+        holder.productid.setText(product.get(position).getProductid());
+        holder.onClick(product.get(position).getProductid());
+
     }
 
     @Override
@@ -45,7 +47,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
 
     class myViewBinder extends RecyclerView.ViewHolder{
 
-        TextView pname,prate,pdescription;
+        TextView pname,prate,pdescription,productid;
         Button btnadd;
         ImageView imgord;
         public myViewBinder(@NonNull View itemView) {
@@ -54,17 +56,18 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
             prate = (TextView) itemView.findViewById(R.id.txtprate);
             pdescription = (TextView) itemView.findViewById(R.id.txtpdescription);
             btnadd = (Button) itemView.findViewById(R.id.btnadd);
+            productid=(TextView)itemView.findViewById(R.id.txtproductid);
             imgord = (ImageView) itemView.findViewById(R.id.imgord);
         }
 
-            public void onClick(final int id)
+            public void onClick(final String id)
             {
                     btnadd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(context,id + "is clicked",Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,id + " is clicked",Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(context,UserProductActivity.class);
-                            intent.putExtra("pid",product.get(id).getProductid());
+                            intent.putExtra("pid",id);
                             context.startActivity(intent);
 
                         }

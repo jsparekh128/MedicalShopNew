@@ -40,6 +40,7 @@ public class UserProductActivity extends AppCompatActivity {
         txtpcategory=findViewById(R.id.txtproductcategory);
         txtpcontent=findViewById(R.id.txtproductcontent);
         btnQty=findViewById(R.id.btnqty);
+        btnBuy=findViewById(R.id.btnbuy);
         productid=getIntent().getStringExtra("pid");
         getProductDetails(productid);
         btnBuy.setOnClickListener(new View.OnClickListener() {
@@ -51,17 +52,19 @@ public class UserProductActivity extends AppCompatActivity {
     }
 
     private void addingToCartList() {
-    DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("Cart List");
+    DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
         SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
-        String sharedemail = sharedPreferences.getString("email", null);
-    final HashMap<String,Object> cartMap= new HashMap<>();
-    cartMap.put("pid",productid);
+        String shareduserid = sharedPreferences.getString("userid", null);
+        final HashMap<String,Object> cartMap= new HashMap<>();
+         cartMap.put("pid",productid);
         cartMap.put("pname",txtpname.getText().toString());
         cartMap.put("pqty",btnQty.getNumber());
         cartMap.put("prate",txtprate.getText().toString());
         cartMap.put("pcategory",txtpcategory.getText().toString());
         cartMap.put("pcontent",txtpcontent.getText().toString());
-        cartListRef.child("User View").child(sharedemail).child("Products").child(productid).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        cartMap.put("pstatus","Pending");
+
+        cartListRef.child("UserView").child(shareduserid).child("Products").child(productid).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())

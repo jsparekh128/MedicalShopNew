@@ -74,7 +74,8 @@ public class Login extends AppCompatActivity {
                  SharedPreferences sharedPreferences = getSharedPreferences("user",Context.MODE_PRIVATE);
                  String sharedemail = sharedPreferences.getString("email", null);
                  String sharedpassword = sharedPreferences.getString("password", null);
-                    if (sharedemail != null && sharedpassword != null ) {
+                 String shareduid=sharedPreferences.getString("userid",null);
+                    if (sharedemail != null && sharedpassword != null  && shareduid!=null) {
                      startActivity(new Intent(getApplicationContext(),HomePage.class));
 
                  }
@@ -125,6 +126,7 @@ public class Login extends AppCompatActivity {
                                 editor.putString("email", email);
                                 // this should be salted
                                 editor.putString("password", password);
+                                editor.putString("userid",mFirebaseAuth.getCurrentUser().getUid());
                                 editor.commit();
                                 startActivity(new Intent(Login.this, HomePage.class));
 
