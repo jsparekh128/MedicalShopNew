@@ -48,8 +48,8 @@ public class UserProfile extends AppCompatActivity {
                     String username=dataSnapshot.child("pEmail").getValue().toString();
                     String useremail=dataSnapshot.child("pName").getValue().toString();
                     String usermobile=dataSnapshot.child("pMobile").getValue().toString();
-                    pName.setText(username);
-                    pEmail.setText(useremail);
+                    pName.setText(useremail);
+                    pEmail.setText(username);
                     pMobile.setText(usermobile);
                 }
             }

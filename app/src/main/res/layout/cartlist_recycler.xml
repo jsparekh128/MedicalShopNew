@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/imgord"
+            android:src="@drawable/order">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtpname"
+            android:text="Title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_toRightOf="@+id/imgord"
+            android:layout_toEndOf="@+id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Qty:"
+            android:id="@+id/displayqty"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/imgord"
+            android:layout_toEndOf="@id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/txtpname"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:id="@+id/txtpqty"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/displayqty"
+            android:layout_toEndOf="@id/displayqty"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/txtpname"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs."
+            android:id="@+id/rs"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/imgord"
+            android:layout_toEndOf="@id/imgord"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/displayqty"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:id="@+id/txtpamt"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/rs"
+            android:layout_toEndOf="@id/rs"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/displayqty"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtproductid"
+            android:textStyle="bold"
+            android:text="Product Id"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

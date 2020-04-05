@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -58,18 +59,31 @@ public class UserProductActivity extends AppCompatActivity {
     }
 
     private void addingToCartList() {
-    DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
+
+        String savecurrentdate,savecurrentime;
+        Calendar calendar=Calendar.getInstance();
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat currentDate= new SimpleDateFormat("MMM dd, yyyy");
+        savecurrentdate=currentDate.format(calendar.getTime());
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat currentTime= new SimpleDateFormat("HH:mm:ss a");
+        savecurrentime=currentTime.format(calendar.getTime());
+
+
+        DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
         SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
         String shareduserid = sharedPreferences.getString("userid", null);
+
         final HashMap<String,Object> cartMap= new HashMap<>();
-
-
         cartMap.put("pid",productid);
         cartMap.put("pname",txtpname.getText().toString());
         cartMap.put("pqty",btnQty.getNumber());
         cartMap.put("prate",txtprate.getText().toString());
         cartMap.put("pcategory",txtpcategory.getText().toString());
         cartMap.put("pcontent",txtpcontent.getText().toString());
+        cartMap.put("date",savecurrentdate);
+        cartMap.put("time",savecurrentime);
+
         int qty=Integer.parseInt(btnQty.getNumber());
         Float rate=Float.parseFloat(txtprate.getText().toString());
         Float amt= qty * rate;
@@ -81,16 +95,13 @@ public class UserProductActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Snackbar snackbar=Snackbar.make(relativelayout,"Go to Cart",Snackbar.LENGTH_INDEFINITE)
-                            .setAction("Click Here", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent intent=new Intent(UserProductActivity.this,UserCartView.class);
-                                    startActivity(intent);
-                                }
-                            });
+                    Toast.makeText(UserProductActivity.this,"Added to Cart",Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(UserProductActivity.this,HomePage.class);
+                    startActivity(intent);
                 }
-            }
+
+                }
+
         });
     }
 
