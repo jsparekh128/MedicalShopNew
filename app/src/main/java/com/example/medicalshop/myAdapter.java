@@ -65,7 +65,6 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewBinder> {
                     btnadd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(context,id + " is clicked",Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(context,UserProductActivity.class);
                             intent.putExtra("pid",id);
                             context.startActivity(intent);

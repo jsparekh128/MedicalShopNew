@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -69,8 +70,9 @@ public class UserProductActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-
                     Toast.makeText(UserProductActivity.this,"Added to Cart",Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(UserProductActivity.this,User_Order.class);
+                    startActivity(intent);
                 }
             }
         });
