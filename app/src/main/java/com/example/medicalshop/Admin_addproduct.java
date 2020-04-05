@@ -44,6 +44,7 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
                     maxid=(dataSnapshot.getChildrenCount());
+                    proid.setText(String.valueOf(maxid+1));
             }
 
             @Override
@@ -59,7 +60,7 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
         catname=data;
 
         cateoname.setText(data);
-        proid.setText(String.valueOf(maxid+1));
+
     }
 
     @Override
