@@ -3,6 +3,7 @@ package com.example.medicalshop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ public class Admin_Home extends AppCompatActivity implements View.OnClickListene
     CardView syrupcrd,tabletcrd,ointcrd,capsulecrd,viewcrd;
     TextView capsuletxt,ointtxt,tablettxt,syruptxt;
     String catname;
+    ImageButton logoutbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,9 @@ public class Admin_Home extends AppCompatActivity implements View.OnClickListene
         tabletcrd=findViewById(R.id.tabletcrd);
         ointcrd=findViewById(R.id.ointcrd);
         viewcrd=findViewById(R.id.viewcrd);
+
+        logoutbtn=findViewById(R.id.logoutbtn);
+        logoutbtn.setOnClickListener(this);
 
         capsuletxt=findViewById(R.id.capsuletxt);
         ointtxt=findViewById(R.id.ointtxt);
@@ -83,6 +88,10 @@ public class Admin_Home extends AppCompatActivity implements View.OnClickListene
                 i=new Intent(this,Admin_viewproduct.class);
                 startActivity(i);
                 break;
+
+            case R.id.logoutbtn:
+                i=new Intent(this,Login.class);
+                startActivity(i);
         }
     }
 }

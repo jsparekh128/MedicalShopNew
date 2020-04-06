@@ -1,11 +1,11 @@
 package com.example.medicalshop;
 
 public class Products {
-    public String categoryname;
-    public String productname;
-    public String productcontnt;
-    public Float productprice;
-    public String  productid;
+    private String categoryname;
+    private String productname;
+    private String productcontnt;
+    private Float productprice;
+    private String  productid;
 
     public String getProductid() {
         return productid;

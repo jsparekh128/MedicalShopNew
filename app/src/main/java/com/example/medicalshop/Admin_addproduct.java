@@ -18,33 +18,33 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Admin_addproduct extends AppCompatActivity implements View.OnClickListener {
 
-    EditText proid,proname,procon,proprice,cateoname;
+    EditText proid, proname, procon, proprice, cateoname;
     Button addbtn;
     DatabaseReference dbref;
     String catname;
     Products p;
-    long maxid=0;
+    long maxid = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_addproduct);
 
-        cateoname=findViewById(R.id.cateoname);
-        proid=findViewById(R.id.proid);
-        proname=findViewById(R.id.proname);
-        procon=findViewById(R.id.procon);
-        proprice=findViewById(R.id.proprice);
-        addbtn=findViewById(R.id.addbtn);
-        dbref= FirebaseDatabase.getInstance().getReference().child("Products");
-        p=new Products();
+        cateoname = findViewById(R.id.cateoname);
+        proid = findViewById(R.id.proid);
+        proname = findViewById(R.id.proname);
+        procon = findViewById(R.id.procon);
+        proprice = findViewById(R.id.proprice);
+        addbtn = findViewById(R.id.addbtn);
+        dbref = FirebaseDatabase.getInstance().getReference().child("Products");
+        p = new Products();
 
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                    maxid=(dataSnapshot.getChildrenCount());
-                    proid.setText(String.valueOf(maxid+1));
+                if (dataSnapshot.exists())
+                    maxid = (dataSnapshot.getChildrenCount());
+                proid.setText(String.valueOf(maxid + 1));
             }
 
             @Override
@@ -54,10 +54,10 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
         });
         addbtn.setOnClickListener(this);
 
-        Intent i=getIntent();
-        String data=i.getStringExtra("catename_msg");
+        Intent i = getIntent();
+        String data = i.getStringExtra("catename_msg");
 
-        catname=data;
+        catname = data;
 
         cateoname.setText(data);
 
@@ -66,36 +66,18 @@ public class Admin_addproduct extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-            Float price=Float.parseFloat(proprice.getText().toString().trim());
+        Float price = Float.parseFloat(proprice.getText().toString().trim());
 
-            p.setProductname(proname.getText().toString().trim());
-            p.setProductcontnt(procon.getText().toString().trim());
-            p.setProductprice(price);
-            p.setCategoryname(cateoname.getText().toString().trim());
-            p.setProductid(String.valueOf(maxid+1));
-            dbref.child(String.valueOf(maxid+1)).setValue(p);
+        p.setProductname(proname.getText().toString().trim());
+        p.setProductcontnt(procon.getText().toString().trim());
+        p.setProductprice(price);
+        p.setCategoryname(cateoname.getText().toString().trim());
+        p.setProductid(String.valueOf(maxid + 1));
+        dbref.child(String.valueOf(maxid + 1)).setValue(p);
 
-            Toast.makeText(this,"Data Inserted Successfully",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Data Inserted Successfully", Toast.LENGTH_LONG).show();
 
-            if(catname.equals("Ointment")) {
-                Intent intent = new Intent(this, Admin_oint.class);
-                startActivity(intent);
-            }
-
-            if(catname.equals("Syrup")) {
-                 Intent intent = new Intent(this, Admin_syrup.class);
-                 startActivity(intent);
-             }
-
-            if(catname.equals("Capsule")) {
-                 Intent intent = new Intent(this, Admin_capsule.class);
-                 startActivity(intent);
-            }
-
-            if(catname.equals("Tablet")) {
-                 Intent intent = new Intent(this, Admin_tablet.class);
-                 startActivity(intent);
-          }
-        }
-
+        Intent i=new Intent(this,Admin_viewproduct.class);
+        startActivity(i);
+    }
 }

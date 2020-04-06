@@ -1,63 +1,40 @@
 package com.example.medicalshop;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
+import java.util.List;
 
 public class Admin_viewproduct extends AppCompatActivity {
 
-    ListView listview1;
-    DatabaseReference dbref;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> list;
-    Products p;
-
+    private  RecyclerView prorecycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_viewproduct);
 
-        listview1=findViewById(R.id.listView1);
+        prorecycler=findViewById(R.id.prorecycler);
 
-        dbref=FirebaseDatabase.getInstance().getReference("Products");
-
-        list=new ArrayList<>();
-
-        adapter=new ArrayAdapter<String>(this,R.layout.product_info,R.id.proinfo,list);
-
-        listview1.setAdapter(adapter);
-
-        p=new Products();
-
-        dbref.addValueEventListener(new ValueEventListener() {
+        new FirebaseDatabaseHelper().readProducts(new FirebaseDatabaseHelper.DataStatus() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dss:dataSnapshot.getChildren()){
-                    p=dss.getValue(Products.class);
-                    assert p != null;
-                    list.add(p.getProductid().toString()+")  Category Name :  "+p.getCategoryname().toString());
-                    list.add("  Product Name : "+p.getProductname().toString());
-                    list.add("  Product Content : "+p.getProductcontnt().toString());
-                    list.add("  Product Price : "+p.getProductprice().toString());
-                    list.add("");
-
-                }
-                listview1.setAdapter(adapter);
+            public void DataIsLoaded(List<Products> products, List<String> key) {
+                new RecyclerView_Config().setConfig(prorecycler,Admin_viewproduct.this,products,key);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void DataInserted() {
+
+            }
+
+            @Override
+            public void DataDeleted() {
+
+            }
+
+            @Override
+            public void DataUpdated() {
 
             }
         });
