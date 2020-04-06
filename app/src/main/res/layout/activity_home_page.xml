@@ -63,7 +63,7 @@
                 <ImageView
                     android:id="@+id/orderimg"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="117dp"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/order"
                     android:src="@drawable/order" />
@@ -91,7 +91,7 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             android:clickable="true">
@@ -183,7 +183,7 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -220,5 +220,15 @@
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/addcart"
+        android:id="@+id/flaotiongbutton"
+        android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom|end">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </LinearLayout>
