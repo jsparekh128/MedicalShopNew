@@ -1,8 +1,11 @@
 package com.example.medicalshop;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,14 +30,45 @@ public class RecyclerView_Config {
         private TextView procontent;
         private TextView catname;
         private TextView price;
+        private ImageButton deletebtn;
+
+        private String key;
 
         public ProductItemView(ViewGroup parent){
             super(LayoutInflater.from(pcontext).inflate(R.layout.product_list_item,parent,false));
 
+            deletebtn=itemView.findViewById(R.id.deletebtn);
             proname= itemView.findViewById(R.id.proname);
             procontent=itemView.findViewById(R.id.procontent);
             catname=itemView.findViewById(R.id.catname);
             price=itemView.findViewById(R.id.price);
+
+            deletebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new FirebaseDatabaseHelper().deleteProduct(key, new FirebaseDatabaseHelper.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<Products> products, List<String> key) {
+
+                        }
+
+                        @Override
+                        public void DataInserted() {
+
+                        }
+
+                        @Override
+                        public void DataDeleted() {
+                            Log.d("Data Deleted", String.valueOf(deletebtn));
+                        }
+
+                        @Override
+                        public void DataUpdated() {
+
+                        }
+                    });
+                }
+            });
         }
 
         public void bind(Products products,String key){
@@ -42,6 +76,7 @@ public class RecyclerView_Config {
             procontent.setText(products.getProductcontnt());
             catname.setText(products.getCategoryname());
             price.setText( products.getProductprice().toString());
+            this.key=key;
         }
     }
 
