@@ -37,8 +37,12 @@ public class UserProductActivity extends AppCompatActivity {
     RelativeLayout relativelayout;
     String productid="";
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_product);
         txtpname=findViewById(R.id.txtproductname);
@@ -70,10 +74,6 @@ public class UserProductActivity extends AppCompatActivity {
         savecurrentime=currentTime.format(calendar.getTime());
 
 
-        DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
-        SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
-        String shareduserid = sharedPreferences.getString("userid", null);
-
         final HashMap<String,Object> cartMap= new HashMap<>();
         cartMap.put("pid",productid);
         cartMap.put("pname",txtpname.getText().toString());
@@ -84,20 +84,42 @@ public class UserProductActivity extends AppCompatActivity {
         cartMap.put("date",savecurrentdate);
         cartMap.put("time",savecurrentime);
 
+
         int qty=Integer.parseInt(btnQty.getNumber());
         Float rate=Float.parseFloat(txtprate.getText().toString());
         Float amt= qty * rate;
         cartMap.put("totalAmt",amt);
-        cartMap.put("pstatus","Pending");
+        DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
+        SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+        String shareduserid = sharedPreferences.getString("userid", null);
+
+
 
         cartListRef.child("UserView").child(shareduserid).child("Products").child(productid).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(UserProductActivity.this,"Added to Cart",Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(UserProductActivity.this,HomePage.class);
-                    startActivity(intent);
+                    DatabaseReference cartListRef= FirebaseDatabase.getInstance().getReference().child("CartList");
+                    SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+                    String shareduserid = sharedPreferences.getString("userid", null);
+                    cartListRef.child("AdminView").child(shareduserid).child("Products").child(productid)
+                            .updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+
+
+                                Toast.makeText(UserProductActivity.this, "Added to Cart", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(UserProductActivity.this, HomePage.class);
+                                startActivity(intent);
+                            }
+                        }
+
+
+                    });
+
+
                 }
 
                 }

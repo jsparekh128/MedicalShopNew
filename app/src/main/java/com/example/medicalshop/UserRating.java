@@ -2,6 +2,7 @@ package com.example.medicalshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
@@ -28,7 +29,11 @@ public class UserRating extends AppCompatActivity {
         btnrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(UserRating.this,"You Rated :"+String.valueOf(ratingbar1.getRating()),Toast.LENGTH_LONG).show();
+                Toast.makeText(UserRating.this,"Thank You ! You Rated :"+String.valueOf(ratingbar1.getRating()),Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(UserRating.this,HomePage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
             }
         });
 

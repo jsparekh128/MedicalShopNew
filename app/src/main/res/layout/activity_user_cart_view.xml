@@ -14,13 +14,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Price"
+            android:text="Cart View"
             android:textColor="#000"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="22sp"
             android:layout_marginTop="10dp"
-            android:id="@+id/txttotalprice">
+            android:id="@+id/txtcart">
 
         </TextView>
 
@@ -34,9 +34,36 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/cartRecyclerView">
         </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total price"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txttotalprice"
+            android:layout_below="@+id/cartRecyclerView"
+            android:background="@color/colorPrimary">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txttotalprice"
+            android:text="Currently there are no orders in your Cart! Continue Shopping!"
+            android:textSize="22sp"
+            android:textColor="#000"
+            android:visibility="invisible"
+            android:id="@+id/txtcongrats">
+
+        </TextView>
 
     </RelativeLayout>
 
@@ -46,7 +73,7 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Place to Order"
+            android:text="Next"
             android:layout_alignParentBottom="true"
             android:textSize="20sp"
             android:id="@+id/btnorder"
